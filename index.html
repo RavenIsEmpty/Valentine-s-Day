@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loving You</title>
+<style>
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: sans-serif;
+}
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background-color: coral;
+}
+.wrapper{
+position: relative; /* element's position will be relative to its normal position in the document flow. */
+width: 600px;
+height: 400px;
+background-color: white;
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+h2{
+font-size: 30px;
+color: coral;
+margin: 15px;
+}
+.btn-group{
+width: 100px;
+height: 40px;
+display: flex;
+justify-content: center;
+}
+button{
+position: absolute;
+width: 70px;
+height: 40px;
+font-size: 20px;
+background-color: aliceblue;
+border-radius: 13px;
+border-color: coral;
+outline: none;
+}
+button:nth-child(1){
+margin-left: 200px;
+background-color: coral;
+color: white;
+}
+button:nth-child(2){
+margin-right: 200px;
+background-color: red;
+color: white;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<h2 class="question" align="center" > I love You :) <br> Do You Love
+me?</h2>
+<div class="btn-group">
+<button class="yes-btn">Yes</button>
+<button class="no-btn">No</button>
+</div>
+</div>
+</body>
+</html>
+<script>
+const wrapper =document.querySelector('.wrapper');
+const question=document.querySelector('.question');
+const yesBtn=document.querySelector('.yes-btn');
+const noBtn=document.querySelector('.no-btn');
+const wrapperRect=wrapper.getBoundingClientRect();
+const noBtnRect=noBtn.getBoundingClientRect();
+yesBtn.addEventListener('click', ()=>{
+question.innerHTML="I Love you Too :)";
+});
+noBtn.addEventListener('mouseover', ()=>{
+const i=Math.floor(Math.random()*(wrapperRect.width- noBtnRect.width))+1;
+const j=Math.floor(Math.random()*(wrapperRect.height- noBtnRect.height))+1;
+noBtn.style.left=i+'px';
+noBtn.style.top=j+'px'
+} );
+</script>
