@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loving You 💖</title>
+    <title>Valentine's Day 💖</title>
     <link rel="icon" href="heart-logo.png" type="image/x-icon" />
     <style>
       * {
@@ -36,6 +36,49 @@
         padding: 35px;
         min-height: 200px;
         text-align: center;
+      }
+
+      /* Refresh Button - Now Positioned to Top-Right */
+      .refresh-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Moved to the right */
+        width: 40px;
+        height: 40px;
+        background: #ff5e78;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, background 0.3s ease,
+          box-shadow 0.3s ease;
+        box-shadow: 0px 4px 8px rgba(255, 94, 120, 0.4);
+        animation: pulse 1.5s infinite;
+      }
+
+      .refresh-btn:hover {
+        background: #ff3d61;
+        transform: rotate(90deg) scale(1.1);
+        box-shadow: 0px 6px 12px rgba(255, 94, 120, 0.6);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0px 4px 8px rgba(255, 94, 120, 0.4);
+        }
+        50% {
+          transform: scale(1.1);
+          box-shadow: 0px 6px 12px rgba(255, 94, 120, 0.6);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0px 4px 8px rgba(255, 94, 120, 0.4);
+        }
       }
 
       h2 {
@@ -129,6 +172,9 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- Refresh Button Moved to Top-Right -->
+      <button class="refresh-btn" onclick="location.reload()">🔄</button>
+
       <h2 class="question">Will you be my Valentine? 💖</h2>
       <div class="btn-group">
         <button class="yes-btn">Yes</button>
@@ -143,7 +189,7 @@
 
       yesBtn.addEventListener("click", () => {
         question.innerHTML = "YAY! 💖 You made my day!";
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 69; i++) {
           let heart = document.createElement("div");
           heart.innerHTML = "❤️";
           heart.classList.add("heart");
@@ -156,7 +202,7 @@
       });
 
       function moveNoButton() {
-        let maxX = window.innerWidth * 0.4; // Ensures it stays within view
+        let maxX = window.innerWidth * 0.4;
         let maxY = window.innerHeight * 0.3;
         let x = (Math.random() - 0.5) * maxX;
         let y = (Math.random() - 0.5) * maxY;
@@ -164,7 +210,7 @@
       }
 
       noBtn.addEventListener("mouseover", moveNoButton);
-      noBtn.addEventListener("touchstart", moveNoButton); // Mobile fix
+      noBtn.addEventListener("touchstart", moveNoButton);
     </script>
   </body>
 </html>
