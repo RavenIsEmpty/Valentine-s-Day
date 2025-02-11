@@ -1,92 +1,158 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="heart-logo.png" type="image/x-icon">
-<title>Loving You</title>
-<style>
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: sans-serif;
-}
-body {
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-background-color: coral;
-}
-.wrapper{
-position: relative; /* element's position will be relative to its normal position in the document flow. */
-width: 600px;
-height: 400px;
-background-color: white;
-border-radius: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-}
-h2{
-font-size: 30px;
-color: coral;
-margin: 15px;
-}
-.btn-group{
-width: 100px;
-height: 40px;
-display: flex;
-justify-content: center;
-}
-button{
-position: absolute;
-width: 70px;
-height: 40px;
-font-size: 20px;
-background-color: aliceblue;
-border-radius: 13px;
-border-color: coral;
-outline: none;
-}
-button:nth-child(1){
-margin-left: 200px;
-background-color: coral;
-color: white;
-}
-button:nth-child(2){
-margin-right: 200px;
-background-color: red;
-color: white;
-}
-</style>
-</head>
-<body>
-<div class="wrapper">
-<h2 class="question" align="center" > បងស្រឡាញ់អូន :) <br> អូនស្រឡាញ់បងអត់? </h2>
-<div class="btn-group">
-<button class="yes-btn">ស្រឡាញ់</button>
-<button class="no-btn">អត់</button>
-</div>
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loving You 💖</title>
+    <link rel="icon" href="heart-logo.png" type="image/x-icon" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        overflow: hidden;
+      }
+
+      .wrapper {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .wrapper:hover {
+        transform: scale(1.02);
+      }
+
+      h2 {
+        font-size: 30px;
+        color: #ff5e78;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 600;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .btn-group {
+        position: relative;
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+      }
+
+      button {
+        width: 90px;
+        height: 45px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        position: relative;
+      }
+
+      .yes-btn {
+        background-color: #ff5e78;
+        color: white;
+        box-shadow: 0px 4px 10px rgba(255, 94, 120, 0.4);
+      }
+
+      .yes-btn:hover {
+        background-color: #ff3d61;
+        transform: scale(1.1);
+      }
+
+      .no-btn {
+        background-color: red;
+        color: white;
+        position: absolute;
+        left: 150px; /* Moved it away from "Yes" */
+        transition: all 0.4s ease-in-out;
+      }
+
+      .heart {
+        font-size: 24px;
+        position: absolute;
+        bottom: 0;
+        opacity: 1;
+        animation: floatUp 4s ease-in-out forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        70% {
+          transform: translateY(-50vh);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-50vh);
+          opacity: 0.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2 class="question">Will you be my Valentine? 💖</h2>
+      <div class="btn-group">
+        <button class="yes-btn">Yes</button>
+        <button class="no-btn">No</button>
+      </div>
+    </div>
+
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+      const question = document.querySelector(".question");
+      const yesBtn = document.querySelector(".yes-btn");
+      const noBtn = document.querySelector(".no-btn");
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+
+      yesBtn.addEventListener("click", () => {
+        question.innerHTML = "YAY! 💖 You made my day!";
+
+        for (let i = 0; i < 20; i++) {
+          // Reduced heart count for better effect
+          let heart = document.createElement("div");
+          heart.innerHTML = "❤️";
+          heart.classList.add("heart");
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.animationDelay = `${Math.random() * 0.5}s`;
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 4000);
+        }
+      });
+
+      noBtn.addEventListener("mouseover", () => {
+        let newX = Math.random() * (wrapperRect.width - 150);
+        let newY = Math.random() * (wrapperRect.height - 100);
+
+        noBtn.style.transform = `translate(${newX}px, ${newY}px)`;
+      });
+    </script>
+  </body>
 </html>
-<script>
-const wrapper =document.querySelector('.wrapper');
-const question=document.querySelector('.question');
-const yesBtn=document.querySelector('.yes-btn');
-const noBtn=document.querySelector('.no-btn');
-const wrapperRect=wrapper.getBoundingClientRect();
-const noBtnRect=noBtn.getBoundingClientRect();
-yesBtn.addEventListener('click', ()=>{
-question.innerHTML=" អរគុណដែលស្រឡាញ់បង  Mauh💖 :)";
-});
-noBtn.addEventListener('mouseover', ()=>{
-const i=Math.floor(Math.random()*(wrapperRect.width- noBtnRect.width))+1;
-const j=Math.floor(Math.random()*(wrapperRect.height- noBtnRect.height))+1;
-noBtn.style.left=i+'px';
-noBtn.style.top=j+'px'
-} );
-</script>
