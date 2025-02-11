@@ -65,10 +65,10 @@ color: white;
 </head>
 <body>
 <div class="wrapper">
-<h2 class="question" align="center" > បងចង់យកកូន :) <br> យកកូនអត់មាសស្នេហ៌</h2>
+<h2 class="question" align="center" > បងស្រឡាញ់អូន :) <br> អូនស្រឡាញ់បងអត់? </h2>
 <div class="btn-group">
-<button class="yes-btn">Yes</button>
-<button class="no-btn">No</button>
+<button class="yes-btn">ស្រឡាញ់</button>
+<button class="no-btn">អត់</button>
 </div>
 </div>
 </body>
@@ -81,7 +81,7 @@ const noBtn=document.querySelector('.no-btn');
 const wrapperRect=wrapper.getBoundingClientRect();
 const noBtnRect=noBtn.getBoundingClientRect();
 yesBtn.addEventListener('click', ()=>{
-question.innerHTML=" យកតាសបងសម្លាញ់ :)";
+question.innerHTML=" អរគុណដែលស្រឡាញ់បង  Mauh💖 :)";
 });
 noBtn.addEventListener('mouseover', ()=>{
 const i=Math.floor(Math.random()*(wrapperRect.width- noBtnRect.width))+1;
