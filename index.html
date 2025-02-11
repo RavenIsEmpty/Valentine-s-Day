@@ -86,45 +86,30 @@
         background: red;
         color: white;
         position: absolute;
-        left: 50px;
+        transition: transform 0.3s ease-in-out;
       }
 
+      /* Floating Hearts */
       .heart {
-        font-size: 24px;
         position: absolute;
-        bottom: 0;
-        opacity: 1;
-        animation: floatUp 4s ease-in-out forwards;
+        font-size: 24px;
+        opacity: 0;
+        animation: floatHeart 4s linear forwards;
       }
 
-      @keyframes floatUp {
+      @keyframes floatHeart {
         0% {
-          transform: translateY(0);
+          transform: translateY(0) scale(0.8) rotate(0deg);
           opacity: 1;
-        }
-        70% {
-          transform: translateY(-50vh);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-50vh);
-          opacity: 0;
-        }
-      }
-
-      /* Button Dodge Effect */
-      @keyframes dodge {
-        0% {
-          transform: translate(0, 0);
         }
         50% {
-          transform: translate(
-            calc(-50px + 100% * random()),
-            calc(-30px + 60px * random())
-          );
+          transform: translateY(-50vh) translateX(-10px) scale(1.2)
+            rotate(15deg);
+          opacity: 0.8;
         }
         100% {
-          transform: translate(0, 0);
+          transform: translateY(-100vh) translateX(10px) scale(1) rotate(-15deg);
+          opacity: 0;
         }
       }
 
@@ -163,19 +148,20 @@
 
       yesBtn.addEventListener("click", () => {
         question.innerHTML = "YAY! 💖 You made my day!";
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 15; i++) {
           let heart = document.createElement("div");
           heart.innerHTML = "❤️";
           heart.classList.add("heart");
           heart.style.left = `${Math.random() * 100}%`;
-          heart.style.animationDelay = `${Math.random() * 0.5}s`;
+          heart.style.animationDelay = `${Math.random()}s`;
+          heart.style.fontSize = `${Math.random() * 20 + 15}px`;
           document.body.appendChild(heart);
           setTimeout(() => heart.remove(), 4000);
         }
       });
 
       noBtn.addEventListener("mouseover", () => {
-        let x = (Math.random() - 0.5) * 300; // Moves left/right
+        let x = (Math.random() - 0.5) * 400; // Moves left/right
         let y = (Math.random() - 0.5) * 200; // Moves up/down
         noBtn.style.transform = `translate(${x}px, ${y}px)`;
       });
