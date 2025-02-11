@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Valentine's Day 💖</title>
+    <title>Loving You 💖</title>
     <link rel="icon" href="heart-logo.png" type="image/x-icon" />
     <style>
       * {
@@ -34,15 +34,15 @@
         align-items: center;
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
         padding: 35px;
-        min-height: 200px;
+        min-height: 300px;
         text-align: center;
       }
 
-      /* Refresh Button - Now Positioned to Top-Right */
+      /* Refresh Button */
       .refresh-btn {
         position: absolute;
         top: 10px;
-        right: 10px; /* Moved to the right */
+        right: 10px;
         width: 40px;
         height: 40px;
         background: #ff5e78;
@@ -69,16 +69,21 @@
       @keyframes pulse {
         0% {
           transform: scale(1);
-          box-shadow: 0px 4px 8px rgba(255, 94, 120, 0.4);
         }
         50% {
           transform: scale(1.1);
-          box-shadow: 0px 6px 12px rgba(255, 94, 120, 0.6);
         }
         100% {
           transform: scale(1);
-          box-shadow: 0px 4px 8px rgba(255, 94, 120, 0.4);
         }
+      }
+
+      /* Cat Image */
+      .cat-img {
+        width: 180px;
+        height: auto;
+        margin-bottom: 10px;
+        transition: opacity 0.5s ease-in-out;
       }
 
       h2 {
@@ -172,8 +177,15 @@
   </head>
   <body>
     <div class="wrapper">
-      <!-- Refresh Button Moved to Top-Right -->
+      <!-- Refresh Button -->
       <button class="refresh-btn" onclick="location.reload()">🔄</button>
+
+      <!-- Cat Image -->
+      <img
+        class="cat-img"
+        src="/asset/Will_you_be_my_valentine.gif"
+        alt="Cute cat ask"
+      />
 
       <h2 class="question">Will you be my Valentine? 💖</h2>
       <div class="btn-group">
@@ -184,12 +196,18 @@
 
     <script>
       const question = document.querySelector(".question");
+      const catImg = document.querySelector(".cat-img");
       const yesBtn = document.querySelector(".yes-btn");
       const noBtn = document.querySelector(".no-btn");
 
       yesBtn.addEventListener("click", () => {
         question.innerHTML = "YAY! 💖 You made my day!";
-        for (let i = 0; i < 69; i++) {
+
+        // Change cat image to happy love cat
+        catImg.src = "/asset/In_Love.jpg";
+
+        // Floating hearts effect
+        for (let i = 0; i < 15; i++) {
           let heart = document.createElement("div");
           heart.innerHTML = "❤️";
           heart.classList.add("heart");
