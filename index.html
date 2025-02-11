@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loving You 💖</title>
     <link rel="icon" href="heart-logo.png" type="image/x-icon" />
@@ -36,11 +35,6 @@
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
         padding: 25px;
         text-align: center;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .wrapper:hover {
-        transform: scale(1.03);
       }
 
       h2 {
@@ -48,7 +42,6 @@
         color: #ff5e78;
         margin-bottom: 20px;
         font-weight: 600;
-        transition: color 0.3s ease-in-out;
       }
 
       .btn-group {
@@ -70,6 +63,7 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
       }
 
       .yes-btn {
@@ -85,7 +79,6 @@
       .no-btn {
         background: red;
         color: white;
-        position: absolute;
         transition: transform 0.3s ease-in-out;
       }
 
@@ -160,11 +153,16 @@
         }
       });
 
-      noBtn.addEventListener("mouseover", () => {
-        let x = (Math.random() - 0.5) * 400; // Moves left/right
-        let y = (Math.random() - 0.5) * 200; // Moves up/down
+      function moveNoButton() {
+        let maxX = window.innerWidth * 0.4; // Ensures it stays within view
+        let maxY = window.innerHeight * 0.3;
+        let x = (Math.random() - 0.5) * maxX;
+        let y = (Math.random() - 0.5) * maxY;
         noBtn.style.transform = `translate(${x}px, ${y}px)`;
-      });
+      }
+
+      noBtn.addEventListener("mouseover", moveNoButton);
+      noBtn.addEventListener("touchstart", moveNoButton); // Mobile fix
     </script>
   </body>
 </html>
